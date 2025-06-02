@@ -5,13 +5,16 @@ import Image from 'next/image'
 import Link from "next/link";
 // Import the image directly
 import { useState } from 'react';
-import { hoverVariants,buttonVariants } from './Animation/animation'
+import { hoverVariants, buttonVariants, rotaiteR, rotaiteL,MoveTop } from './Animation/animation'
 import { Bangers } from 'next/font/google';
 
+import BayButton from './Components/Button'
+
+
 const bangers = Bangers({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
+    weight: '400',
+    subsets: ['latin'],
+    display: 'swap',
 });
 
 export default function Hero() {
@@ -23,10 +26,14 @@ export default function Hero() {
 
     return (
         <>
-            <div className=" md:flex max-h-[85vh] w-full justify-center mt-15">
+            <div className=" md:flex max-h-[85vh] w-full justify-center mt-15 ">
                 {/* Mango */}
-                <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} 
-                className="md:w-[50%] mt-[75px]  md:bg-[#B47704] ">
+                <motion.div variants={rotaiteR}
+                    initial="hidden"
+                    animate="visible"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    className="md:w-[50%] mt-[25px]  md:bg-[#B47704] ">
 
                     {
 
@@ -72,10 +79,14 @@ export default function Hero() {
                         ))
                     }
 
-                </div>
+                </motion.div>
 
                 {/* Chocolate */}
-                <div className="relative z-10 md:w-[50%] h-screen md:bg-[#4B2612] ">
+                <motion.div 
+                 variants={MoveTop}
+                 initial="hidden"
+                 animate="visible"
+                className="relative z-10 md:w-[50%] h-screen md:bg-[#4B2612] ">
                     {
                         BoostChocolate.map((choco) => (
                             <div key={choco.id} onMouseEnter={() => setIsHovered3(true)} onMouseLeave={() => setIsHovered3(false)}>
@@ -100,7 +111,7 @@ export default function Hero() {
                                                 {choco.hyödyt.map((hyöty, index) => (
                                                     <div
                                                         key={index}
-                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-2 text-sm font-semibold shadow-md " 
+                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-2 text-sm font-semibold shadow-md "
                                                     >
                                                         {hyöty}
                                                     </div>
@@ -114,32 +125,18 @@ export default function Hero() {
                         ))
                     }
                     {/* Button */}
-                    <div className=" w-full text-center  mt-[5vh]">
-                        <div className="flex justify-end mr-4">
-                            <div className="relative">
-                                <h1 className="mr-10 rotate-9 text-3xl text-red-500 font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">Limited</h1>
-                            </div>
-                        </div>
-                        <motion.button
-                            variants={buttonVariants}
-                            initial="initial"
-                            whileHover="hover"
-                            whileTap="tap"
-                            transition={{ type: "spring", stiffness: 300 }}
-                            className="mt-[-35vh] px-6 py-2 w-[35vh] h-[7vh]  rounded-md text-3xl font-bold hover:text-[#c49f60] shadow-[0_4px_8px_rgba(0,0,0,0.3)] hover:shadow-[0_6px_12px_rgba(0,0,0,0.4)]"
-                        >
-                            Buy Now
-                        </motion.button>
-                    </div>
+                 <BayButton/>
 
-
-
-
-                </div>
+                </motion.div>
 
                 {/* Lemon */}
-                <div onMouseEnter={() => setIsHovered2(true)} onMouseLeave={() => setIsHovered2(false)} 
-                className="md:w-[50%] mt-[75px] h-auto md:bg-[#BAA316]  ">
+                <motion.div
+                    variants={rotaiteL}
+                    initial="hidden"
+                    animate="visible"
+                    onMouseEnter={() => setIsHovered2(true)}
+                    onMouseLeave={() => setIsHovered2(false)}
+                    className="md:w-[50%] mt-[25px] h-auto md:bg-[#BAA316] -rotate-5 ">
                     {
                         BoostLemon.map((Lemon) => (
                             <div key={Lemon.id} className="relative z-10">
@@ -177,7 +174,7 @@ export default function Hero() {
 
                         ))
                     }
-                </div>
+                </motion.div>
             </div>
 
         </>
