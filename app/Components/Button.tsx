@@ -7,7 +7,7 @@ export default function BayButton(){
         <div className=" w-full text-center  mt-[5vh]">
         <div className="flex justify-end mr-4">
             <div className="relative">
-                <h1 className="mr-10 rotate-9 text-3xl text-red-500 font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">Limited</h1>
+                <h1 className="mr-10 rotate-9 text-2xl text-red-500 font-bold drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">Limited</h1>
             </div>
         </div>
         <motion.button

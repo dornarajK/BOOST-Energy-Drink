@@ -1,6 +1,12 @@
+
 export default function Footer(){
     return (
-        <h1>Footer</h1>
+        <>
+        <div className="w-full h-[50vh] bg-black">
+
+        </div>
+        </>
+        
     )
  
 }

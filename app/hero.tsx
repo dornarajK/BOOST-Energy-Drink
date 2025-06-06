@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from "next/link";
 // Import the image directly
 import { useState } from 'react';
-import { hoverVariants, buttonVariants, rotaiteR, rotaiteL,MoveTop } from './Animation/animation'
+import { hoverVariants, buttonVariants, rotaiteR, rotaiteL, MoveTop } from './Animation/animation'
 import { Bangers } from 'next/font/google';
 
 import BayButton from './Components/Button'
@@ -26,9 +26,10 @@ export default function Hero() {
 
     return (
         <>
-            <div className=" md:flex max-h-[85vh] w-full justify-center mt-15 ">
+            <div className=" md:flex max-h-[85vh] w-full justify-center mt-15 h-screen mb-10">
                 {/* Mango */}
-                <motion.div variants={rotaiteR}
+                <motion.div
+                    variants={rotaiteR}
                     initial="hidden"
                     animate="visible"
                     onMouseEnter={() => setIsHovered(true)}
@@ -57,12 +58,16 @@ export default function Hero() {
                                         className="absolute inset-0 h-[76vh] bg-[#2e220e6a] flex justify-center items-center ">
                                         <div className="text-center   rounded-4xl absolute ">
                                             <div className="text-5xl mb-5 font-extrabold ">{Mango.nimi}</div>
-                                            <div className={`text-7xl mb-5 text-red-500 ${bangers.className}`}>{Mango.hinta} €</div>
-                                            <div className=" flex flex-wrap gap-4 justify-center ">
+                                            <div>
+                                                <div className={`text-7xl mb-5 text-red-500  ${bangers.className}`}>{Mango.hinta} € </div>
+                                                <div className='text-center text-red-700 text-3xl  line-through -mt-5 mb-5'>3.99 €</div>
+                                            </div>
+
+                                            <div className="flex flex-wrap gap-2 justify-center max-w-[300px] mx-auto">
                                                 {Mango.hyödyt.map((hyöty, index) => (
                                                     <div
                                                         key={index}
-                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-2 text-sm font-semibold shadow-md "
+                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-1 text-xs font-medium shadow-sm truncate max-w-[130px]"
                                                     >
                                                         {hyöty}
                                                     </div>
@@ -82,11 +87,11 @@ export default function Hero() {
                 </motion.div>
 
                 {/* Chocolate */}
-                <motion.div 
-                 variants={MoveTop}
-                 initial="hidden"
-                 animate="visible"
-                className="relative z-10 md:w-[50%] h-screen md:bg-[#4B2612] ">
+                <motion.div
+                    variants={MoveTop}
+                    initial="hidden"
+                    animate="visible"
+                    className="relative z-10 md:w-[50%]  md:bg-[#4B2612] ">
                     {
                         BoostChocolate.map((choco) => (
                             <div key={choco.id} onMouseEnter={() => setIsHovered3(true)} onMouseLeave={() => setIsHovered3(false)}>
@@ -106,12 +111,15 @@ export default function Hero() {
                                         className="absolute inset-0 h-[63vh] bg-[#2e220e6a] flex justify-center items-center ">
                                         <div className="text-center  rounded-4xl absolute ">
                                             <div className="text-5xl mb-5 font-extrabold ">{choco.nimi}</div>
-                                            <div className={`text-7xl mb-5 text-red-500 ${bangers.className}`}>{choco.hinta} €</div>
-                                            <div className=" flex flex-wrap gap-4 justify-center">
+                                            <div>
+                                                <div className={`text-7xl mb-5 text-red-500 ${bangers.className}`}>{choco.hinta} € </div>
+                                                <div className='text-center text-red-700 text-3xl  line-through -mt-5 mb-5'>3.99 €</div>
+                                            </div>
+                                           <div className="flex flex-wrap gap-2 justify-center max-w-[300px] mx-auto">
                                                 {choco.hyödyt.map((hyöty, index) => (
                                                     <div
                                                         key={index}
-                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-2 text-sm font-semibold shadow-md "
+                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-1 text-xs font-medium shadow-sm truncate max-w-[130px]"
                                                     >
                                                         {hyöty}
                                                     </div>
@@ -125,7 +133,7 @@ export default function Hero() {
                         ))
                     }
                     {/* Button */}
-                 <BayButton/>
+                    <BayButton />
 
                 </motion.div>
 
@@ -154,13 +162,15 @@ export default function Hero() {
                                         animate="visible"
                                         exit="hidden" className="absolute inset-0 h-[76vh] bg-[#2e220e6a] flex justify-center items-center ">
                                         <div className="text-center  rounded-4xl absolute ">
-                                            <div className="text-5xl mb-5 font-extrabold ">{Lemon.nimi}</div>
-                                            <div className={`text-7xl mb-5 text-red-500 ${bangers.className}`}>{Lemon.hinta} €</div>
-                                            <div className=" flex flex-wrap gap-4 justify-center ">
+                                        <div>
+                                                <div className={`text-7xl mb-5 text-red-500 ${bangers.className}`}>{Lemon.hinta} € </div>
+                                                <div className='text-center text-red-700 text-3xl  line-through -mt-5 mb-5'>3.99 €</div>
+                                            </div>
+                                            <div className="flex flex-wrap gap-2 justify-center max-w-[300px] mx-auto">
                                                 {Lemon.hyödyt.map((hyöty, index) => (
                                                     <div
                                                         key={index}
-                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-2 text-sm font-semibold shadow-md "
+                                                        className="bg-[#2e220e6a] text-yellow-100 rounded-full px-2 py-1 text-xs font-medium shadow-sm truncate max-w-[130px]"
                                                     >
                                                         {hyöty}
                                                     </div>
