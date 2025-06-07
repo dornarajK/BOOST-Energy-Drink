@@ -26,6 +26,11 @@ export default function Hero() {
 
     return (
         <>
+         <div className="mt-2 text-center py-6 bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg">
+                    <h1 className={`text-5xl font-bold text-red-500 mb-2 ${bangers.className} animate-pulse`}>SUMMER OFFER!</h1>
+                    <p className="text-xl text-white font-medium tracking-wide">Get your favorite Boost drinks at amazing prices</p>
+                    <div className="mt-1 text-yellow-100 text-sm font-semibold">Limited time only! 🎉</div>
+                </div>
             <div className=" md:flex max-h-[85vh] w-full justify-center mt-15 h-screen mb-10">
                 {/* Mango */}
                 <motion.div
