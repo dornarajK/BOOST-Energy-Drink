@@ -16,7 +16,7 @@ export const hoverVariants = {
 
 export const buttonVariants = {
   initial: { scale: 1 },
-  hover: { scale: 1.07 },
+  
   tap: { scale: 0.95 },
 };
 

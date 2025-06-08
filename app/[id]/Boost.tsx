@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image'
 import BayButton from '../Components/Button'
 import { BayBoostCard, aineetOneByOneMain, itemVariants } from '../Animation/animation'
+import { getBackgroundColor } from '../AllBoost'
 
 
 interface BoostType {
@@ -26,24 +27,11 @@ interface BoostProps {
 
 export default function Boost({ data }: BoostProps) {
 
-
-    const getBackgroundColor = (boostName: string) => {
-        switch (boostName) {
-            case 'Boost Chocolate':
-                return 'bg-[#4B2612]';
-            case 'Boost Mango':
-                return 'bg-[#B47704]';
-            case 'Boost Lemon':
-                return 'bg-[#BAA316]';
-            default:
-                return 'bg-gray-100';
-        }
-    };
-
-    const test = getBackgroundColor(data[0].nimi);
+    const BoostColor = getBackgroundColor(data[0].nimi);
 
 
 
+    // * Scroll animation
     const controls = useAnimation();
     const ref = useRef(null);
     const isInView = useInView(ref, {
@@ -57,8 +45,10 @@ export default function Boost({ data }: BoostProps) {
         }
     }, [controls, isInView]);
 
+
+
     return (
-        <section className={`h-screen w-screen ${test}`}>
+        <section className={`h-screen w-screen ${BoostColor}`}>
             {data.map((boost) => (
                 <div key={boost.id} className='flex justify-center h-full w-full items-center '>
                     <motion.div

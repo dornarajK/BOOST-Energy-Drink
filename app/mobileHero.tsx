@@ -24,41 +24,47 @@ export default function MobileHero() {
     useEffect(() => {
         const timer = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % imgArr.length);
-        }, 5000);
+        }, 3000);
 
         return () => clearInterval(timer);
     }, [])
 
-
-
-
-
-
-
-
+            
 
     return (
         <>
 
-            <section className="w-screen h-screen bg-gradient-to-br from-orange-600 via-amber-700 to-yellow-500">
-                <div className="text-center py-6 bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg">
-                    <h1 className={`text-5xl font-bold text-red-500 mb-2 ${bangers.className} animate-pulse`}>SUMMER OFFER!</h1>
-                    <p className="text-xl text-white font-medium tracking-wide">Get your favorite Boost drinks at amazing prices</p>
-                    <div className="mt-2 text-yellow-100 text-sm font-semibold">Limited time only! 🎉</div>
-                </div>
-                <div className=''>
-                    <div className="mt-10    relative w-full h-full flex items-center justify-center">
-                        <Image
-                            src={imgArr[index]}
-                            alt="Mobile Hero Image"
-                            className="w-[150%] h-[160%] object-contain scale-125 mt-10"
-                            priority
-                            quality={100}
-                        />
+            <section className="w-screen h-[110vh] bg-gradient-to-br from-orange-600 via-amber-700 to-yellow-500 mt-5 overflow-hidden">
+                <div className="text-center py-6 bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg z-10 relative">
+                    <h1 className={`text-5xl font-bold text-red-500 mb-2 ${bangers.className} animate-pulse`}>
+                        SUMMER OFFER!
+                    </h1>
+                    <p className="text-xl text-white font-medium tracking-wide">
+                        Get your favorite Boost drinks at amazing prices
+                    </p>
+                    <div className="mt-2 text-yellow-100 text-sm font-semibold">
+                        Limited time only! 🎉
                     </div>
                 </div>
-                <BayButton />
+
+                <div className="relative w-full h-[400px] flex items-center justify-center overflow-hidden">
+                    <Image
+                        src={imgArr[index]}
+                        alt="Mobile Hero Image"
+                        fill
+                        className="object-contain scale-125 transition-opacity duration-300 ease-in-out"
+                        priority
+                        quality={100}
+                    />
+                </div>
+
+
+                <div className="z-10 relative">
+                    <BayButton />
+                </div>
+
             </section>
+
         </>
     )
 }       
