@@ -1,6 +1,7 @@
 import Hero from "./hero";
 import MobileHero from "./mobileHero"
 import AllBoost from "./AllBoost";
+import LastAllBost from "./LastAllBost"
 
 export default function Home() {
   return (
@@ -16,6 +17,8 @@ export default function Home() {
       </div>
 
       <AllBoost />
+      
+      <LastAllBost/>
 
 
 

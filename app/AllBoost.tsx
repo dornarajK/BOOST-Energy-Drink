@@ -35,7 +35,7 @@ export default function AllBoost() {
                 <MobileBoosts data={BoostMango} />
                 <MobileBoosts data={BoostLemon} />
             </div>
-
+            
 
         </>
     )
