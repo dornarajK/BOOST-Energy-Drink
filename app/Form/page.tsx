@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Customer, Product } from '@prisma/client';
+import { createCustomer } from '../services/customerService';
 
 
 type CartItem = {
