@@ -8,8 +8,7 @@ export async function GET(
 ) {
   try {
     const customer = await prisma.customer.findUnique({
-      where: { id: parseInt(context.params.id) },
-      include: { products: true }
+      where: { id: parseInt(context.params.id) }
     })
 
     if (!customer) {
@@ -61,3 +60,6 @@ export async function DELETE(
     return NextResponse.json({ error: 'Error deleting customer' }, { status: 500 })
   }
 }
+
+
+
