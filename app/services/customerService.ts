@@ -1,4 +1,4 @@
-import { Customer, Product } from '../generated/prisma'
+import { Customer, Product } from '@prisma/client';
 
 const API_URL = '/api/customer'
 
