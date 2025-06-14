@@ -15,7 +15,8 @@ export default function OrderControl() {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
 
-    useEffect(() => {
+    
+    useEffect(() => { 
         fetchOrders();
     }, []);
 
