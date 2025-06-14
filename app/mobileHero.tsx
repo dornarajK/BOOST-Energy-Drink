@@ -8,7 +8,7 @@ import Image from 'next/image'
 import BayButton from './Components/Button'
 import React, { useState, useEffect } from 'react'
 import { Bangers } from 'next/font/google';
-
+import Link from 'next/link'
 const imgArr = [Mcho, Mlem, Mman,]
 const bangers = Bangers({
     weight: '400',
@@ -60,7 +60,9 @@ export default function MobileHero() {
 
 
                 <div className="z-10 relative">
-                    <BayButton />
+                  
+                    <Link href={`/Chocolate`}><BayButton  /></Link>
+                   
                 </div>
 
             </section>

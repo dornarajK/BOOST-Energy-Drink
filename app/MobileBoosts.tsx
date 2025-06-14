@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image'
 import BayButton from './Components/Button'
 import { BayBoostCard, aineetOneByOneMain, itemVariants } from './Animation/animation'
-
+import Link from 'next/link';
 import { getBackgroundColor } from './AllBoost'
 
 
@@ -90,7 +90,7 @@ export default function MobileBoosts({ data }: BoostProps) {
                                 <div className='text-center text-red-700 text-5xl font-bold'>{boost.hinta} €</div>
                                 <div className='text-center text-red-700 text-2xl font-bold line-through'>3.99 €</div>
                                 <div className='flex justify-center mt-4'>
-                                    <BayButton />
+                                    <Link href={`/${boost.nimi}`}><BayButton  /></Link>
                                 </div>
                                 <div className="flex flex-wrap gap-2 justify-center mt-4">
                                     {boost.hyödyt.map((hyöty, index) => (

@@ -17,31 +17,29 @@ export async function GET() {
 }
 
 // POST new customer
-export async function POST(request: Request) {
+export async function POST(req: NextRequest) {
   try {
-    const data = await request.json()
+    const data = await req.json();
 
+    // Create customer
     const customer = await prisma.customer.create({
       data: {
         name: data.name,
         phone: data.phone,
         address: data.address,
         products: {
-          create: data.products || []
-        },
-      },
-      include: {
-        products: {
-          orderBy: {
-            id: 'asc'
-          } 
-        },
-      },
-    })
+          create: data.products.map((product: any) => ({
+            name: product.name,
+            price: product.price,
+            quantity: product.quantity
+          }))
+        }
+      }
+    });
 
-    return NextResponse.json(customer, { status: 201 })
+    return NextResponse.json(customer, { status: 201 });
   } catch (error) {
-    console.error('Error in POST /api/customer:', error)
-    return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 })
+    console.error(error);
+    return NextResponse.json({ error: 'Failed to create customer' }, { status: 500 });
   }
 }

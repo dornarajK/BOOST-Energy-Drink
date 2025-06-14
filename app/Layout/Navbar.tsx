@@ -71,7 +71,8 @@ export default function Navbar() {
                     <ul className="flex gap-7 font-bold text-[13px] text-black">
                         <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/">Home</Link>
                         <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/Chocolate">Products</Link>
-                        <li className="hover:text-white cursor-pointer transition-colors duration-200">About</li>
+                        <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/Admin">Admin</Link>
+                     
                     </ul>
                 </div>
             </div>
@@ -109,7 +110,9 @@ export default function Navbar() {
                         <ul className="flex flex-col gap-6 text-[#E1CAA1] text-xl">
                             <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/">Home</Link>
                             <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/Chocolate">Products</Link>
-                            <li className="hover:text-white cursor-pointer transition-colors duration-200">About</li>
+                            <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/Admin">Admin</Link>
+
+                          
                         </ul>
 
                         {/* Icons in Mobile*/}
