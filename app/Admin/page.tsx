@@ -5,6 +5,7 @@ import { getAllCustomers, deleteCustomer } from '../services/customerService';
 import { Customer, Product } from '@prisma/client';
 
 
+
 interface CustomerWithProducts extends Customer {
     products?: Product[];
 }
