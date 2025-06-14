@@ -1,13 +1,14 @@
 import { prisma } from '../../../../lib/prisma'
-
-
 import { NextRequest, NextResponse } from 'next/server'
 
 // GET one customer
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   try {
     const customer = await prisma.customer.findUnique({
-      where: { id: parseInt(params.id) },
+      where: { id: parseInt(context.params.id) },
       include: { products: true }
     })
 
@@ -22,13 +23,16 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 }
 
 // PUT update customer
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   try {
     const data = await req.json()
     const { name, phone, address } = data
 
     const customer = await prisma.customer.update({
-      where: { id: parseInt(params.id) },
+      where: { id: parseInt(context.params.id) },
       data: { name, phone, address }
     })
 
@@ -39,14 +43,17 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 }
 
 // DELETE customer
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   try {
     await prisma.product.deleteMany({
-      where: { customerId: parseInt(params.id) }
+      where: { customerId: parseInt(context.params.id) }
     })
 
     await prisma.customer.delete({
-      where: { id: parseInt(params.id) }
+      where: { id: parseInt(context.params.id) }
     })
 
     return NextResponse.json({ message: 'Customer deleted' })
