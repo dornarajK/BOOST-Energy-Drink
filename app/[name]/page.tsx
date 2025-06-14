@@ -12,12 +12,14 @@ import { motion, AnimatePresence } from "framer-motion";
 type CartItem = {
     name: string;
     quantity: number;
+    price: number;
 };
 
 export default function BoostPage() {
     const params = useParams<{ name: string }>();
     const [quantity, setQuantity] = useState<number>(1);
-
+    
+    const [totalPrice, setTotalPrice] = useState(0);
     const [cart, setCart] = useState<CartItem[]>([]);
 
     const [isCartOpen, setIsCartOpen] = useState(() => {
@@ -70,9 +72,30 @@ export default function BoostPage() {
     };
 
 
+    useEffect(() => {
+        const calculateTotalPrice = () => {
+            const storedCart = localStorage.getItem("cart");
+            if (storedCart) {
+                const cartItems = JSON.parse(storedCart);
+                const total = cartItems.reduce((sum: number, item: { price: number, quantity: number }) => {
+                    return sum + (item.price * item.quantity);
+                }, 0);
+                setTotalPrice(total);
+            }
+        };
+
+        calculateTotalPrice();
+        // Add event listener for storage changes
+        window.addEventListener('storage', calculateTotalPrice);
+
+        return () => {
+            window.removeEventListener('storage', calculateTotalPrice);
+        };
+    }, [cart]); // Recalculate when cart changes
+
 
     // Add to cart function
-    const addToCart = (name: string) => {
+    const addToCart = (name: string, price: number) => {
         let updatedCart = [...cart];
         const index = updatedCart.findIndex(item => item.name === name);
 
@@ -82,7 +105,7 @@ export default function BoostPage() {
             updatedCart[index].quantity += quantity;
         } else {
             // Item does not exist, add new
-            updatedCart.push({ name: name, quantity: quantity });
+            updatedCart.push({ name: name, quantity: quantity, price: price });
         }
 
         setCart(updatedCart);
@@ -185,7 +208,7 @@ export default function BoostPage() {
                     <div className="flex items-center justify-center gap-6">
                         <button
                             onClick={() => {
-                                addToCart(boost.nimi);
+                                addToCart(boost.nimi, boost.hinta);
                                 setIsCartOpen(true);
                             }}
 
@@ -223,7 +246,7 @@ export default function BoostPage() {
                 initial={{ x: "100%" }}
                 animate={{ x: isCartOpen ? 0 : "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed right-0 top-23 h-[60vh] w-[20%] bg-white shadow-lg p-6 overflow-y-auto"
+                className="fixed right-0 top-23 h-[80vh] w-[20%] bg-white shadow-lg p-6 overflow-y-auto"
             >
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -242,6 +265,7 @@ export default function BoostPage() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </motion.button>
+
                 </motion.div>
 
                 <AnimatePresence mode="wait">
@@ -271,6 +295,9 @@ export default function BoostPage() {
                                 >
                                     <div className="flex-1 flex flex-col gap-2">
                                         <h3 className="font-medium text-gray-800">{item.name}</h3>
+                                        <h3 className="font-medium text-gray-800">
+                                            {(item.price * item.quantity).toFixed(2)} €
+                                        </h3>
                                         <div className="flex items-center gap-3">
                                             <button
                                                 onClick={() => decreaseItemQuantity(item.name)}
@@ -304,13 +331,18 @@ export default function BoostPage() {
                         </motion.div>
                     )}
                 </AnimatePresence>
+                <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg mt-4">
+                    <span className="text-xl font-bold text-gray-800">Total:</span>
+                    <span className="text-2xl font-bold text-[#E1CAA1]">{totalPrice.toFixed(2)} €</span>
+                </div>
+                <Link href='/Form'>
+                    <button
+                        className="w-full mt-4 bg-[#E1CAA1] hover:bg-[#e1c9a1b4] text-black py-2 px-4 rounded-md transition-colors duration-200"
+                    >
+                        Buy Now
+                    </button>
+                </Link>
 
-                <button
-                    onClick={() => setIsCartOpen(false)}
-                    className="w-full mt-4 bg-[#E1CAA1] hover:bg-[#e1c9a1b4] text-black py-2 px-4 rounded-md transition-colors duration-200"
-                >
-                    Close Cart
-                </button>
             </motion.div>
 
 

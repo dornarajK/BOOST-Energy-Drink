@@ -59,9 +59,11 @@ export default function Navbar() {
     return (
         <div className="flex justify-between items-center h-auto mt-[25px] px-4 relative ">
 
-            <div>
-                <h1 className="font-extrabold text-3xl md:text-4xl text-[#E1CAA1]">BOOST</h1>
-            </div>
+            <Link href="/">
+                <div>
+                    <h1 className="font-extrabold text-3xl md:text-4xl text-[#E1CAA1]">BOOST</h1>
+                </div>
+            </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:block">
