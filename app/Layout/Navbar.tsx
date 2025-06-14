@@ -52,7 +52,7 @@ export default function Navbar() {
     const burgerVariants = {
         closed: { rotate: 0 },
         open: { rotate: 90 },
-      
+
     }
 
 
@@ -67,9 +67,8 @@ export default function Navbar() {
             <div className="hidden md:block">
                 <div className="bg-[#E1CAA1] px-10 py-2 rounded-4xl text-center">
                     <ul className="flex gap-7 font-bold text-[13px] text-black">
-                        <li className="hover:text-white cursor-pointer transition-colors duration-200">Home</li>
-                        <li className="hover:text-white cursor-pointer transition-colors duration-200">Products</li>
-                        <li className="hover:text-white cursor-pointer transition-colors duration-200">Shop</li>
+                        <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/">Home</Link>
+                        <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/Chocolate">Products</Link>
                         <li className="hover:text-white cursor-pointer transition-colors duration-200">About</li>
                     </ul>
                 </div>
@@ -77,23 +76,23 @@ export default function Navbar() {
 
 
             {/* Mobile Menu Button */}
-          
-                <motion.button
-                    className="md:hidden z-50"
-                    onClick={() => setIsOpen(!isOpen)}
-                    variants={burgerVariants}
-                    animate={isOpen ? "open" : "closed"}
-                   
-                >
 
-                    {/* Button open and close style */}
-                    <div className="w-6 h-5 flex flex-col justify-between">
-                        <span className={`w-full h-0.5 bg-[#E1CAA1] transform transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                        <span className={`w-full h-0.5 bg-[#E1CAA1] transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-                        <span className={`w-full h-0.5 bg-[#E1CAA1] transform transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
-                    </div>
-                </motion.button>
-         
+            <motion.button
+                className="md:hidden z-50"
+                onClick={() => setIsOpen(!isOpen)}
+                variants={burgerVariants}
+                animate={isOpen ? "open" : "closed"}
+
+            >
+
+                {/* Button open and close style */}
+                <div className="w-6 h-5 flex flex-col justify-between">
+                    <span className={`w-full h-0.5 bg-[#E1CAA1] transform transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+                    <span className={`w-full h-0.5 bg-[#E1CAA1] transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+                    <span className={`w-full h-0.5 bg-[#E1CAA1] transform transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                </div>
+            </motion.button>
+
 
             {/* Mobile Menu */}
             <AnimatePresence>
@@ -106,9 +105,8 @@ export default function Navbar() {
                         variants={menuVariants}
                     >
                         <ul className="flex flex-col gap-6 text-[#E1CAA1] text-xl">
-                            <li className="hover:text-white cursor-pointer transition-colors duration-200">Home</li>
-                            <li className="hover:text-white cursor-pointer transition-colors duration-200">Products</li>
-                            <li className="hover:text-white cursor-pointer transition-colors duration-200">Shop</li>
+                            <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/">Home</Link>
+                            <Link className="hover:text-white cursor-pointer transition-colors duration-200" href="/Chocolate">Products</Link>
                             <li className="hover:text-white cursor-pointer transition-colors duration-200">About</li>
                         </ul>
 

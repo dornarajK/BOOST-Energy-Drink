@@ -6,11 +6,11 @@ import { BoostChocolate, BoostMango, BoostLemon } from './Data/BoostData'
 
 export const getBackgroundColor = (boostName: string) => {
     switch (boostName) {
-        case 'Boost Chocolate':
+        case 'Chocolate':
             return 'bg-[#4B2612]';
-        case 'Boost Mango':
+        case 'Mango':
             return 'bg-[#B47704]';
-        case 'Boost Lemon':
+        case 'Lemon':
             return 'bg-[#BAA316]';
         default:
             return 'bg-gray-100';

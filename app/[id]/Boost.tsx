@@ -2,6 +2,7 @@
 
 import { motion, useAnimation, useInView } from 'framer-motion'
 import { useEffect, useRef } from 'react';
+import Link from 'next/link'
 
 import Image from 'next/image'
 import BayButton from '../Components/Button'
@@ -62,7 +63,9 @@ export default function Boost({ data }: BoostProps) {
                             <div className='text-4xl font-bold mb-5 text-center'>{boost.nimi}</div>
                             <div className='text-center text-red-700 text-6xl font-bold'>{boost.hinta} €</div>
                             <div className='text-center text-red-700 text-3xl font-bold line-through'>3.99 €</div>
-                            <BayButton />
+                            <Link href={`/${boost.nimi}`}><BayButton  /></Link>
+                            
+
                             <div className="flex flex-wrap gap-4 justify-center mt-6">
                                 <div className="flex flex-wrap gap-2 justify-center">
                                     {boost.hyödyt.map((hyöty, index) => (

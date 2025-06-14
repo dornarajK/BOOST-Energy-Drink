@@ -153,7 +153,7 @@ export default function Hero() {
                         ))
                     }
                     {/* Button */}
-                    <BayButton />
+                    <Link href={`/Chocolate`}><BayButton  /></Link>
 
                 </motion.div>
 

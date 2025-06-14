@@ -1,3 +1,4 @@
+import Link from "next/link"
 export default function Footer() {
     return (
         <footer className="w-full bg-black text-white py-12">
@@ -44,14 +45,15 @@ export default function Footer() {
                     </div>
 
 
-                    <div className="space-y-4">
+                    <div className="flex flex-col gap-4">
                         <h3 className="text-xl font-bold">Quick Links</h3>
-                        <ul className="space-y-2">
-                            <li><a href="/" className="text-gray-400 hover:text-white transition">Home</a></li>
-                            <li><a href="/products" className="text-gray-400 hover:text-white transition">Products</a></li>
-                            <li><a href="/about" className="text-gray-400 hover:text-white transition">About</a></li>
-                            <li><a href="/contact" className="text-gray-400 hover:text-white transition">Contact</a></li>
-                        </ul>
+                        <nav>
+                            <ul className="space-y-2">
+                                <li><Link href="/" className="text-gray-400 hover:text-white transition">Home</Link></li>
+                                <li><Link href="/Chocolate" className="text-gray-400 hover:text-white transition">Products</Link></li>
+                                <li><Link href="/about" className="text-gray-400 hover:text-white transition">About</Link></li>
+                            </ul>
+                        </nav>
                     </div>
 
 
@@ -59,7 +61,7 @@ export default function Footer() {
                         <h3 className="text-xl font-bold">Contact Us</h3>
                         <ul className="space-y-2 text-gray-400">
                             <li>Email: info@bayboost.com</li>
-                            <li>Phone: +358 123 456 789</li>
+                            <li>Phone: +358 XXX XXX XXX</li>
                             <li>Address: Helsinki, Finland</li>
                         </ul>
                     </div>

@@ -17,7 +17,7 @@ export interface Boost {
 export const BoostChocolate: Boost[] = [
     {
         id: 1,
-        nimi: "Boost Chocolate",
+        nimi: "Chocolate",
         img: Chocolate.src,
         hinta: 2.99,
         aineet: [
@@ -41,7 +41,7 @@ export const BoostChocolate: Boost[] = [
 export const BoostMango: Boost[] = [
     {
         id: 2,
-        nimi: "Boost Mango",
+        nimi: "Mango",
         img: Mango.src,
         hinta: 2.99,
         aineet: [
@@ -65,7 +65,7 @@ export const BoostMango: Boost[] = [
 export const BoostLemon: Boost[] = [
     {
         id: 3,
-        nimi: "Boost Lemon",
+        nimi: "Lemon",
         img: Lemon.src,
         hinta: 2.99,
         aineet: [

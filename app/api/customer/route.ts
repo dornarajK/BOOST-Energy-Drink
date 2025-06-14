@@ -1,5 +1,6 @@
 'use server'
-import {prisma} from '../../../prisma/seed'
+
+import { prisma } from '../../../lib/prisma'
 
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -19,12 +20,6 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const data = await request.json()
-
-    // Reset product IDs to start from 1 for new customer
-    const productsWithResetIds = data.products.map((product: any, index: number) => ({
-      ...product,
-      id: index + 1 // Reset ID to start from 1
-    }))
 
     const customer = await prisma.customer.create({
       data: {
