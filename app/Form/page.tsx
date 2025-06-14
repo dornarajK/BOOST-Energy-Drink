@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import {createCustomer} from '../services/customerService'
+import { Customer, Product } from '@prisma/client';
+
 
 type CartItem = {
     name: string;

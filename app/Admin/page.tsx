@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { getAllCustomers, deleteCustomer } from '../services/customerService';
-import { Customer, Product } from '../generated/prisma';
+import { Customer, Product } from '@prisma/client';
+
 
 interface CustomerWithProducts extends Customer {
     products?: Product[];
