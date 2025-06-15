@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  optimizeCss: false,
   /* config options here */
 };
 
