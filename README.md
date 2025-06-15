@@ -1,6 +1,6 @@
 
 
-Live link  https://boost-energy-drink.vercel.app/Chocolate
+Live link  https://boost-energy-drink.vercel.app/
 
 # ⚡ BOOST Energy Drink Website
 
