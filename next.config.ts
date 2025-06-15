@@ -8,13 +8,14 @@ const nextConfig: NextConfig = {
   },
   webpack: (config) => {
     config.externals = [
-      ...(config.externals || []),
-      {
-        sharp: 'commonjs sharp',
-      },
+        ...(config.externals || []),
+        {
+            sharp: 'commonjs sharp',
+        },
     ];
     return config;
-  },
+},
+
 };
 
 export default nextConfig;
