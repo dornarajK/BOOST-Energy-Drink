@@ -1,4 +1,3 @@
-
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
@@ -119,9 +118,9 @@ export default function Navbar() {
                         <div className=" md:block mt-4 border-t-1 border-[#E1CAA1]" >
                             <ul className="flex gap-3 mt-1.5 " >
 
-                                <Link className='' href=''><Instagram /></Link>
-                                <Link href=''><X /></Link>
-                                <Link href=''><Gmil /></Link>
+                                <Link className='' href='#'><Instagram /></Link>
+                                <Link href='#'><X /></Link>
+                                <Link href='#'><Gmil /></Link>
 
                             </ul>
                         </div>
@@ -132,9 +131,9 @@ export default function Navbar() {
             {/* Icons */}
             <div className="hidden md:block">
                 <ul className="flex gap-3">
-                    <Link className='' href=''><Instagram /></Link>
-                    <Link href=''><X /></Link>
-                    <Link href=''><Gmil /></Link>
+                    <Link className='' href='#'><Instagram /></Link>
+                    <Link href='#'><X /></Link>
+                    <Link href='#'><Gmil /></Link>
                 </ul>
             </div>
         </div>
