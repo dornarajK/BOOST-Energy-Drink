@@ -1,6 +1,6 @@
-import Chocolate from '../Images/Chocolate.png'
-import Lemon from '../Images/Lemon.png'
-import Mango from '../Images/Mango.png'
+import Chocolate from '/Images/Chocolate.png'
+import Lemon from '/Images/Lemon.png'
+import Mango from '/Images/Mango.png'
 
 
 
