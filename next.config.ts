@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   experimental: {
-    typedRoutes: true,
   },
   webpack: (config) => {
     config.externals = [
