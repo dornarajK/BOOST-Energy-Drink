@@ -3,7 +3,7 @@ import { motion, useAnimation, useInView } from 'framer-motion'
 import { useEffect, useRef } from 'react';
 
 import Image from 'next/image'
-import AllBoost from './'
+import AllBoost from '../public/Images/3Boost.png'
 import { BoostTextTopBottom } from './Animation/animation'
 
 export default function LastAllBost() {

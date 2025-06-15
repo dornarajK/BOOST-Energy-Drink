@@ -1,9 +1,10 @@
 "use client"
 
 import { log } from 'console'
-import Mcho from './Images/Mcho.png'
-import Mlem from './Images/Mlem.png'
-import Mman from './Images/Mman.png'
+
+import Mcho from '../public/Images/Mcho.png'
+import Mlem from '../public/Images/Mlem.png'
+import Mman from '../public/Images/Mman.png'
 import Image from 'next/image'
 import BayButton from './Components/Button'
 import React, { useState, useEffect } from 'react'
