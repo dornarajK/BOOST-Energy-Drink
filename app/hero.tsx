@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { BoostChocolate, BoostMango, BoostLemon } from './Data/BoostData'
 import Image from 'next/image'
+
 import Link from "next/link";
 // Import the image directly
 import { useState } from 'react';
