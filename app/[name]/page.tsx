@@ -18,7 +18,7 @@ type CartItem = {
 export default function BoostPage() {
     const params = useParams<{ name: string }>();
     const [quantity, setQuantity] = useState<number>(1);
-    
+
     const [totalPrice, setTotalPrice] = useState(0);
     const [cart, setCart] = useState<CartItem[]>([]);
 
@@ -246,7 +246,7 @@ export default function BoostPage() {
                 initial={{ x: "100%" }}
                 animate={{ x: isCartOpen ? 0 : "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed right-0 top-23 h-[80vh] w-[20%] bg-white shadow-lg p-6 overflow-y-auto"
+                className="fixed right-0 top-20 h-[80vh] w-[90%] sm:w-[80%] md:w-[40%] lg:w-[25%] bg-white shadow-lg p-6 overflow-y-auto z-50"
             >
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -259,13 +259,12 @@ export default function BoostPage() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setIsCartOpen(false)}
-                        className="text-gray-500 hover:text-gray-700 transition-colors duration-200 "
+                        className="text-gray-500 hover:text-gray-700 transition-colors duration-200"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </motion.button>
-
                 </motion.div>
 
                 <AnimatePresence mode="wait">
@@ -283,7 +282,7 @@ export default function BoostPage() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="space-y-4  min-h-[40vh] max-h-[4   0vh]"
+                            className="space-y-4 min-h-[40vh] max-h-[40vh]"
                         >
                             {cart.map((item, index) => (
                                 <motion.div
@@ -324,25 +323,22 @@ export default function BoostPage() {
                                     >
                                         Remove
                                     </motion.button>
-                                    {/* Quantity controls */}
-
                                 </motion.div>
                             ))}
                         </motion.div>
                     )}
                 </AnimatePresence>
+
                 <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg mt-4">
                     <span className="text-xl font-bold text-gray-800">Total:</span>
                     <span className="text-2xl font-bold text-[#E1CAA1]">{totalPrice.toFixed(2)} €</span>
                 </div>
+
                 <Link href='/Form'>
-                    <button
-                        className="w-full mt-4 bg-[#E1CAA1] hover:bg-[#e1c9a1b4] text-black py-2 px-4 rounded-md transition-colors duration-200"
-                    >
+                    <button className="w-full mt-4 bg-[#E1CAA1] hover:bg-[#e1c9a1b4] text-black py-2 px-4 rounded-md transition-colors duration-200">
                         Buy Now
                     </button>
                 </Link>
-
             </motion.div>
 
 

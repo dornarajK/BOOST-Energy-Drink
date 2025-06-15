@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     disableStaticImages: true,
   },
   experimental: {
-    typedRoutes: true,
+    // typedRoutes: true,
   },
   webpack: (config) => {
     config.externals = [
