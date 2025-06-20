@@ -329,7 +329,7 @@ export default function BoostPage() {
                     )}
                 </AnimatePresence>
 
-                <div className="flex justify-between items-center p-4 rounded-lg mt-30 border-t border-gray-200">
+                <div className="flex justify-between items-center p-4 rounded-lg mt-47 md:mt-30  border-t border-gray-200 ">
                     <span className="text-xl font-bold text-gray-800">Total:</span>
                     <span className="text-2xl font-bold text-[#E1CAA1]">{totalPrice.toFixed(2)} €</span>
                 </div>
