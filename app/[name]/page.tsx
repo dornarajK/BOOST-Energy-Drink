@@ -246,7 +246,7 @@ export default function BoostPage() {
                 initial={{ x: "100%" }}
                 animate={{ x: isCartOpen ? 0 : "100%" }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="fixed right-0 top-20 h-[80vh] w-[90%] sm:w-[80%] md:w-[40%] lg:w-[25%] bg-white shadow-lg p-6 overflow-y-auto z-50"
+                className="fixed right-0 top-20 h-[85vh] w-[90%] sm:w-[80%] md:w-[40%] lg:w-[25%] bg-white shadow-lg p-6 overflow-y-auto z-50"
             >
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -273,7 +273,7 @@ export default function BoostPage() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="text-gray-500 text-center"
+                            className="text-gray-500 text-center mb-100"
                         >
                             Your cart is empty
                         </motion.p>
@@ -329,7 +329,7 @@ export default function BoostPage() {
                     )}
                 </AnimatePresence>
 
-                <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg mt-4">
+                <div className="flex justify-between items-center p-4 rounded-lg mt-30 border-t border-gray-200">
                     <span className="text-xl font-bold text-gray-800">Total:</span>
                     <span className="text-2xl font-bold text-[#E1CAA1]">{totalPrice.toFixed(2)} €</span>
                 </div>

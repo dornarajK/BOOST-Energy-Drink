@@ -76,36 +76,52 @@ export default function Form() {
                 }}>
                     <div className="space-y-6 mb-8">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                            <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-1">
+                                Full Name <span className="text-red-500">*</span>
+                            </label>
                             <input
                                 type="text"
                                 name="name"
                                 id="name"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1CAA1] focus:ring-[#E1CAA1]"
+                                autoComplete="name"
+                                placeholder="Enter your full name"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:border-[#E1CAA1] focus:ring-[#E1CAA1] px-3 py-2 transition-colors duration-200"
                             />
                         </div>
 
                         <div>
-                            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
+                            <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-1">
+                                Phone Number <span className="text-red-500">*</span>
+                            </label>
                             <input
                                 type="tel"
                                 name="phone"
                                 id="phone"
                                 required
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1CAA1] focus:ring-[#E1CAA1]"
+                                autoComplete="tel"
+                                placeholder="e.g. +358 40 123 4567"
+                                pattern="^\+?\d[\d\s\-]{7,}$"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:border-[#E1CAA1] focus:ring-[#E1CAA1] px-3 py-2 transition-colors duration-200"
                             />
+                            <p className="text-xs text-gray-500 mt-1">Please enter your phone number in international format.</p>
                         </div>
 
                         <div>
-                            <label htmlFor="address" className="block text-sm font-medium text-gray-700">Address</label>
+                            <label htmlFor="address" className="block text-sm font-semibold text-gray-800 mb-1">
+                                Delivery Address <span className="text-red-500">*</span>
+                            </label>
                             <textarea
                                 name="address"
                                 id="address"
                                 required
                                 rows={3}
-                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#E1CAA1] focus:ring-[#E1CAA1]"
+                                placeholder="Street address, city, postal code"
+                                className="mt-1 block w-full rounded-lg border border-gray-300 shadow-sm focus:border-[#E1CAA1] focus:ring-[#E1CAA1] px-3 py-2 transition-colors duration-200 resize-none"
                             />
+                            <p className="text-xs text-gray-500 mt-1">
+                                Please provide your full delivery address, including street, city, and postal code.
+                            </p>
                         </div>
                     </div>
 
@@ -127,7 +143,7 @@ export default function Form() {
                                     <p className="font-medium text-gray-800">
                                         {(item.price * item.quantity).toFixed(2)} €
                                     </p>
-                                    <p className="text-sm text-gray-600">{item.price.toFixed(2)} € each</p>
+                                    <p className="text-sm text-gray-600">{item.price.toFixed(2)} €</p>
                                 </div>
                             </motion.div>
                         ))}
